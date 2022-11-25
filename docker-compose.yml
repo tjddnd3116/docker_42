@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  valgrind:
+    image: valgrind:0.1
+    container_name: valgrind
+    build:
+      context: ./valgrind
+    volumes:
+      - vol:/workspace
+volumes:
+  vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/workspace

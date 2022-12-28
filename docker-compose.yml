@@ -6,7 +6,7 @@
 #    By: soum <soum@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/26 13:45:43 by soum              #+#    #+#              #
-#    Updated: 2022/11/26 13:45:43 by soum             ###   ########.fr        #
+#    Updated: 2022/12/28 12:30:43 by soum             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,9 @@ version: '3'
 
 services:
   valgrind:
-    image: valgrind:0.1
+    image: valgrind
     container_name: valgrind
     build:
       context: ./valgrind
     volumes:
-      - vol:/workspace
-volumes:
-  vol:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ~/workspace
+      - ${HOME}/workspace:/workspace
